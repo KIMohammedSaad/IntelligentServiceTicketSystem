@@ -1,0 +1,61 @@
+﻿@model ServiceTicketRouter.Models.TicketDetail
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+    string errorMessage = ViewBag.errorMessage;
+
+}
+
+<style>
+    /*body {font-family: Arial, Helvetica, sans-serif;}
+    form {border: 3px solid #f1f1f1;}*/
+
+    /* input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }*/
+
+    button {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        text-align: center;
+        width: 30%;
+        border-radius: 12px;
+    }
+    .button3 {
+        border-radius: 8px;
+    }
+</style>
+<div class="container">
+    <div>
+        <div class="col-6 offset-3">
+            <div>
+                <div>
+                    <h3 class="text-center"> Ticket Status </h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Index">
+                        <div class="form-group">
+                            <label>Ticket No  </label>
+                            <input asp-for="TicketNo" type="text" id="ticketNum" />
+                            <span asp-validation-for="TicketNo" class="text-danger" id="ticketNum"></span>
+                        </div>
+                        <br />
+                        <div class="form-group text-center">
+                            <button class="button3"  type="submit" id="submit">Submit</button>
+                        </div>
+                        <a href="ticketdetails/" class="text-primary small"></a>
+                        <br />
+                        <div id="error">@errorMessage</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

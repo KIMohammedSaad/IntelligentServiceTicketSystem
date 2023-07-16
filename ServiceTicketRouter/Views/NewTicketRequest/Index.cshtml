@@ -1,0 +1,74 @@
+﻿@model ServiceTicketRouter.Models.TicketDetail
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+    string errorMessage = ViewBag.errorMessage;
+
+}
+
+<style>
+    /*body {font-family: Arial, Helvetica, sans-serif;}
+    form {border: 3px solid #f1f1f1;}*/
+
+    /* input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }*/
+
+   /* button {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        text-align: center;
+        width: 30%;
+        border-radius: 12px;
+    }*/
+    .button3 {
+        border-radius: 8px;
+        border: solid;
+        color: black;
+    }
+</style>
+<div class="container">
+    <div>
+        <div class="col-6 offset-3">
+            <div>
+                <div>
+                    <h3 class="text-center">New Ticket Request </h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Index">
+                        <div class="form-group">
+                            <label>IP-Address  </label>
+                            <input asp-for="IPAddress" type="text" id="ipAddress" />
+                            <span asp-validation-for="IPAddress" class="text-danger" id="ipAddress"></span>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Issue Type  </label>
+                            <select asp-for="IssueType" type="dropdown" id="issueType">
+                                @*<option selected>  Select</option>*@
+                                <option id="issueType" value="Server">Server</option>
+                                <option id="issueType" value="Network">Network</option>
+                                <option id="issueType" value="Software">Software</option>
+                                <option id="issueType" value="Hardware">Hardware</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div class="form-group text-center">
+                            <button class="button" type="submit" id="submit">Submit</button>
+                        </div>
+                        <a href="/viewAllTicket" class="text-primary small"></a>
+                        <br />
+                    </form>
+                        <div id="error">@errorMessage</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

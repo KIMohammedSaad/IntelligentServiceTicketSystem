@@ -1,0 +1,119 @@
+﻿@*@model ServiceTicketRouter.Models.TicketDetail*@
+@model IEnumerable<ServiceTicketRouter.Models.TicketDetail>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+    string errorMessage = ViewBag.errorMessage;
+
+}
+
+<style>
+    /*body {font-family: Arial, Helvetica, sans-serif;}
+    form {border: 3px solid #f1f1f1;}*/
+
+    /* input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }*/
+
+    button {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        text-align: center;
+        width: 30%;
+        border-radius: 12px;
+    }
+
+    .button3 {
+        border-radius: 8px;
+    }
+</style>
+<div class="container">
+    <div>
+        <div class="col-6 offset-3">
+            <div>
+                <div>
+                    <h3 class="text-center"> Ticket Status </h3>
+                </div>
+                <div class="card-body">
+                   
+                    <form method="post" asp-action="Index">
+
+                        <div class="form-group">
+                            <label>Ticket No  </label>
+                            <input value="10000" type="text" readonly id="ticketNum" />
+                            @*  <span asp-validation-for="TicketNo" class="text-danger" id="ticketNum"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Issue Type  </label>
+                            <input value="Server" type="text" readonly id="issueType" />
+                            @* <input asp-for="IssueType" type="text" id="issueType" />*@
+                            @* <span asp-validation-for="IssueType" class="text-danger" id="issueType"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Servicer Name  </label>
+                            <input value="Servicer1" readonly type="text" id="name" />
+                            @*<span asp-validation-for="ServicerName" class="text-danger" id="name"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Ticket Status  </label>
+                            <select type="dropdown" id="ticketStatus">
+                                <option value="Open">Open</option>
+                                <option value="InProgres">In-Progres</option>
+                                <option selected value="UserToConfirm">User-To-Confirm</option>
+                                <option value="Close">Close</option>
+                            </select>
+                            @* <span asp-validation-for="TicketStatus" class="text-danger" id="ticketStatus"></span>*@
+                        </div>
+                        <br />
+
+                        <div class="form-group">
+                            <label>Service Mobile  </label>
+                            <input value="ServicerMobile" readonly type="text" id="contactNum" />
+                            @* <span asp-validation-for="ServicerMobile" class="text-danger" id="contactNum"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Servicer Email  </label>
+                            <input value="ServicerEmail" readonly type="text" id="email" />
+                            @* <span asp-validation-for="ServicerEmail" class="text-danger" id="email"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Servicer Comment  </label>
+                            <textarea value="ServicerComment" readonly type="text" id="servicerComment"></textarea>
+                            @*<span asp-validation-for="ServicerComment" class="text-danger" id="servicerComment"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>User Comment  </label>
+                            <textarea type="text" id="userComment"></textarea>
+                            @* <span asp-validation-for="UserComment" class="text-danger" id="userComment"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group text-center">
+                            <button class="button3" type="submit" id="submit">Update</button>
+                        </div>
+                        <a href="/viewAllTicket" class="text-primary small"></a>
+                        <br />
+
+                        <div id="error">@errorMessage</div>
+
+                    </form>
+                   
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,95 @@
+﻿
+@*@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ServiceTicketRouter.Models.TicketDetail>*@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+    List<TicketDetail> userTickets = ViewBag.userTickets as List<TicketDetail>;
+    
+}
+
+<style>
+    .button {
+        border: none;
+        color: white;
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .button3 {
+        border-radius: 8px;
+    }
+
+    tr, th {
+        border: 1px solid black;
+        min-width: 250px;
+    }
+</style>
+
+
+<div class="justify-content-center">
+    <h3 class="text-dark text-center"> <label>View All Ticket</label></h3>
+    @*<table>*@
+        @*<tr class="text-center">
+            <th><label>Ticket No</label></th>
+            <th><label>Issue Type</label></th>
+            <th><label>Status</label></th>
+        </tr>
+
+
+        @if (Model.Count() > 0)
+        {
+            @foreach (var d in Model)
+            {
+
+                <tr class="text-center">
+                    <td><label id="ticketNum_">@d.TicketNo</label></td>
+                    <td><label id="issueType_">@d.IssueType</label></td>
+                    <td><label id="status_">@d.TicketStatus</label></td>
+
+                </tr>
+
+            }
+
+        }
+
+    </table>
+    @if (Model.Count() == 0)
+    {
+        <div id="error"> No Tickets to display</div>
+    }*@
+    <table>
+        <tr>
+            <th><label>Ticket No</label></th>
+            <th><label>Issue Type</label></th>
+            <th><label>Status</label></th>
+        </tr>
+        @if (userTickets.Count > 0)
+        {
+            @for (int i = 0; i < userTickets.Count; i++)
+            {
+                string ticketNum_ = String.Format("ticketNum_{0}", i + 1);
+                string issueType_ = String.Format("issueType_{0}", i + 1);
+                string status_ = String.Format("status_{0}", i + 1);
+                
+                <tr>
+                    <th><label id=@ticketNum_>@userTickets[i].TicketNo</label></th>
+                    <th><label id=@issueType_>@userTickets[i].IssueType</label></th>
+                    <th><label id=@status_>@userTickets[i].TicketStatus</label></th>
+                </tr>
+            }
+        }
+    </table>
+    @if (userTickets.Count == 0)
+    {
+        <div id="error"> No Tickets to display</div>
+    }
+
+</div>
+

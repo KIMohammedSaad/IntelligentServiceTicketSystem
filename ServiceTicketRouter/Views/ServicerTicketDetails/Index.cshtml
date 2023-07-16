@@ -1,0 +1,87 @@
+﻿@model ServiceTicketRouter.Models.TicketDetail
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/ServicerWelcome.cshtml";
+    string errorMessage = ViewBag.errorMessage;
+    string ticketNo = TempData.Peek("newTicketNo").ToString();
+}
+
+<style>
+    /*body {font-family: Arial, Helvetica, sans-serif;}
+    form {border: 3px solid #f1f1f1;}*/
+
+    /* input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }*/
+
+    button {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        text-align: center;
+        width: 30%;
+        border-radius: 12px;
+    }
+
+    .button3 {
+        border-radius: 8px;
+    }
+</style>
+<div class="container">
+    <div>
+        <div class="col-6 offset-3">
+            <div>
+                <div>
+                    <h3 class="text-center"> Ticket Status </h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Index">
+                        <div class="form-group">
+                            <label>Ticket No  </label>
+                            <input asp-for="TicketNo"  readonly type="text" id="ticketNum" value="@ticketNo" />
+                            @*<span asp-validation-for="TicketNo" class="text-danger" id="ticketNum"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Issue Type  </label>
+                            <input asp-for="IssueType" readonly type="text" id="issueType" />
+                            @*<span asp-validation-for="IssueType" class="text-danger" id="issueType"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Ticket Status  </label>
+                            <select asp-for="TicketStatus" type="dropdown" id="ticketStatus">
+                                <option id="ticketStatus" value="Open">Open</option>
+                                <option id="ticketStatus" value="InProgres">In-Progres</option>
+                                <option id="ticketStatus" value="InProgres">In-Progres</option>
+                                <option id="ticketStatus" selected value="UserToConfirm">User-To-Confirm</option>
+                                <option value="Close">Close</option>
+                            </select>
+                            @*<span asp-validation-for="TicketStatus" class="text-danger" id="ticketStatus"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Servicer Comment  </label>
+                            <input asp-for="ServicerComment" type="text" value="Issue is resolved." id="ticketComment" \input>
+                            @*<span asp-validation-for="ServicerComment" class="text-danger" id="ticketComment"></span>*@
+                        </div>
+                        <br />
+                        <div class="form-group text-center">
+                            <button class="button3" type="submit" id="submit">Submit</button>
+                        </div>
+                        <a href="/viewAllTicket" class="text-primary small"></a>
+                        <br />
+
+                        <div id="error">@errorMessage</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

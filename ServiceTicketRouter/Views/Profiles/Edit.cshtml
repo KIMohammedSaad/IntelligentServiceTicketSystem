@@ -1,0 +1,61 @@
+﻿@model ServiceTicketRouter.Models.Register
+
+@{
+    ViewData["Title"] = "Edit";
+    
+   Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+
+    string errorMessage = ViewBag.errorMessage;
+}
+
+
+<h4 class="text-center">Profile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Username" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label" id="name"></label>
+                <input asp-for="Name" class="form-control" id="name" />
+                <span asp-validation-for="Name" class="text-danger" id="name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alias" class="control-label" id="alias"></label>
+                <input asp-for="Alias" class="form-control" id="alias" />
+                <span asp-validation-for="Alias" class="text-danger" id="alias"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label" id="designation"></label>
+                <input asp-for="Designation" class="form-control" id="designation" />
+                <span asp-validation-for="Designation" class="text-danger" id="designation"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department" class="control-label" id="department"></label>
+                <input asp-for="Department" class="form-control" id="department" />
+                <span asp-validation-for="Department" class="text-danger" id="department"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label" id="mail"></label>
+                <input asp-for="Email" class="form-control" id="mail" />
+                <span asp-validation-for="Email" class="text-danger" id="mail"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label" id="mobile"></label>
+                <input asp-for="Mobile" class="form-control" id="mobile" />
+                <span asp-validation-for="Mobile" class="text-danger" id="mobile"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submit" value="Save" class="btn btn-primary">Save</button>
+                @*<input type="submit" id="submit" value="Save" class="btn btn-primary" />*@
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+    <div id="error">@errorMessage</div>
+</div>
+

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ServiceTicketRouter.Models.Register>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+    string errorMessage = ViewBag.errorMessage;
+}
+
+
+<h4 class="text-center">Profile</h4>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th id="department">
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th id="name">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th id="alias">
+                @Html.DisplayNameFor(model => model.Alias)
+            </th>
+            <th id="designation">
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+
+            <th id="mail">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th id="mobile">
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td id="department">
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td id="name">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td id="alias">
+                    @Html.DisplayFor(modelItem => item.Alias)
+                </td>
+                <td id="designation">
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+                <td id="mail">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td id="mobile">
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Username"><button id="editProfile">Edit</button></a> |
+                    <a asp-action="Details" asp-route-id="@item.Username">Details</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

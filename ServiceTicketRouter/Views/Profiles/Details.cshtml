@@ -1,0 +1,52 @@
+﻿@model ServiceTicketRouter.Models.Register
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/WelcomeCustomer.cshtml";
+}
+
+<h4 class="text-center">Profile</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2" id="department">
+        @Html.DisplayNameFor(model => model.Department)
+    </dt>
+    <dd class="col-sm-10" id="department">
+        @Html.DisplayFor(model => model.Department)
+    </dd>
+    <dt class="col-sm-2" id="name">
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+    <dd class="col-sm-10" id="name">
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    <dt class="col-sm-2" id="alias">
+        @Html.DisplayNameFor(model => model.Alias)
+    </dt>
+    <dd class="col-sm-10" id="alias">
+        @Html.DisplayFor(model => model.Alias)
+    </dd>
+    <dt class="col-sm-2" id="designation">
+        @Html.DisplayNameFor(model => model.Designation)
+    </dt>
+    <dd class="col-sm-10" id="designation">
+        @Html.DisplayFor(model => model.Designation)
+    </dd>
+    <dt class="col-sm-2" id="mail">
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd class="col-sm-10" id="mail">
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+    <dt class="col-sm-2" id="mobile">
+        @Html.DisplayNameFor(model => model.Mobile)
+    </dt>
+    <dd class="col-sm-10" id="mobile">
+        @Html.DisplayFor(model => model.Mobile)
+    </dd>
+
+</dl>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Username">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

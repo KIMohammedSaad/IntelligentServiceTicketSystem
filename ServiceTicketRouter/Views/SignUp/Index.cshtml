@@ -1,0 +1,60 @@
+﻿@model ServiceTicketRouter.Models.Register
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string errorMessage = ViewBag.errorMessage;
+}
+<style>
+        /*body {font-family: Arial, Helvetica, sans-serif;}
+        form {border: 3px solid #f1f1f1;}*/
+
+        /* input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }*/
+
+        button {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+            width: 30%;
+            border-radius: 12px;
+        }
+    </style>
+    <div class="container">
+        <div class ="row">
+            <div class="col-6 offset-3">
+                <div class ="card">
+                    @*<div class="card-header">*@
+                        <h3 class="text-center"> Service Ticket Router </h3>
+                    @*</div>*@
+                    <div class="card-body">
+                        <form method="post" asp-action="Index">
+                            <div class="form-group">
+                                <label>Type  </label>
+                                <select asp-for="UserType"  id="userType">
+                                    <option value="Customer" selected>Customer</option>
+                                    <option value="Servicer" >Servicer</option>
+                                </select>
+
+                            </div>
+                            <br />
+                            <div class="form-group text-center">
+                                <button class="button" type="submit" id="submit">Register</button>
+                            </div>
+                            <br />
+                            @*<div id="error">@errorMessage</div>*@
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

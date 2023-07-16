@@ -1,0 +1,94 @@
+﻿@model ServiceTicketRouter.Models.Register
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string errorMessage = ViewBag.errorMessage;
+    
+}
+<style>
+    button {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        text-align: center;
+        width: 30%;
+        border-radius: 12px;
+    }
+
+    .button3 {
+        border-radius: 8px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                @*<div class="card-header">*@
+                <h3 class="text-center"> Service Ticket Router </h3>
+                @*</div>*@
+                <form class="well form-horizontal" method="post" asp-action="Index">
+                    <div class="form-group">
+                        <label>Username  </label>
+                        <input asp-for="Username" type="text" id="userName" />
+                        <span asp-validation-for="Username" class="text-danger" id="userName"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Password  </label>
+                        <input asp-for="Password" type="text" id="password" />
+                        <span asp-validation-for="Password" class="text-danger" id="password"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Name  </label>
+                        <input asp-for="Name" type="text" id="name" />
+                        <span asp-validation-for="Name" class="text-danger" id="name"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Alias  </label>
+                        <input asp-for="Alias" type="text" id="alias" />
+                        <span asp-validation-for="Alias" class="text-danger" id="alias"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Designation  </label>
+                        <input asp-for="Designation" type="text" id="designation" />
+                        <span asp-validation-for="Designation" class="text-danger" id="designation"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Department  </label>
+                        <input asp-for="Department" type="text" id="department" />
+                        <span asp-validation-for="Department" class="text-danger" id="department"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Email  </label>
+                        <input asp-for="Email" type="text" id="email" />
+                        <span asp-validation-for="Email" class="text-danger" id="email"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Mobile  </label>
+                        <input asp-for="Mobile" type="text" id="mobile" />
+                        <span asp-validation-for="Mobile" class="text-danger" id="mobile"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div id="error">@errorMessage</div>
+                    </div>
+                    <div class="form-group">
+                        <button class="button3" type="submit" id="submit"> Register </button>
+                    </div>
+                    <a href="/login" class="text-primary small"></a>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

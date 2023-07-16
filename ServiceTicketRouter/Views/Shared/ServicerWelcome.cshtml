@@ -1,0 +1,112 @@
+﻿@{
+    Layout = "_Layout";
+    string loggedInUser = "";
+    if (TempData.Peek("loggedInUsername") != null)
+    {
+        loggedInUser = TempData.Peek("loggedInUsername").ToString();
+    }
+}
+<!DOCTYPE html>
+<style>
+    /*.button {
+        border: none;
+        color: white;
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }*/
+
+    .button3 {
+        border-radius: 8px;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 40px;
+    }
+
+    .navbar-brand {
+        text-align: center;
+    }
+
+    .navbar2 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 40px;
+    }
+    .onlyblue {
+        color: blue;
+    }
+    h3, h4 {
+        color: white;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom mb-3">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h3 class="navbar-brand text-center">Service Ticket Router</h3>
+            </div>
+            <div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle justify-content-end" id="welcome" data-toggle="dropdown" href="#">Welcome<span class="glyphicon glyphicon-log-in"></span> </a>
+                        <h4>@loggedInUser</h4>
+                        <div class="dropdown-menu">
+                            <form id="formLogin" class="form container-fluid">
+                                <div class="form-group">
+                                    <label for="usr"><a href="/profile">Profile</a></label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd"><a href="/login">Logout</a></label>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <label class="onlyblue">Dashboard</label>
+    <br />
+    <br />
+    <br />
+    <div class="navbar2">
+        <div>
+           
+            <br />
+            <br />
+            <a href="/servicerTicketStatus">Ticket Status</a>
+            <br />
+            <br />
+            <a href="/servicerViewAllTicket">View All Ticket</a>
+        </div>
+
+    </div>
+    @RenderBody()
+
+
+
+</body>
+</html>
